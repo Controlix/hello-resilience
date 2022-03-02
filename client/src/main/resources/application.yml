@@ -1,3 +1,12 @@
+client:
+  instances:
+    greeting:
+      url: http://localhost:8091/greeting
+
+feign:
+  circuitbreaker:
+    enabled: true
+
 management:
   endpoint:
     health:
