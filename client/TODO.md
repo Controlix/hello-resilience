@@ -1,0 +1,2 @@
+- feign + simple service discovery client
+- fallback
