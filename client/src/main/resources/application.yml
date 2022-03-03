@@ -4,6 +4,8 @@ client:
       url: http://localhost:8091/greeting
     ping:
       url: http://localhost:8091/ping
+    fail:
+      url: http://localhost:8091/fail
 
 feign:
   circuitbreaker:
