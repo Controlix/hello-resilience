@@ -11,6 +11,17 @@ feign:
   circuitbreaker:
     enabled: true
 
+resilience4j:
+  retry:
+    instances:
+      twice:
+        maxAttempts: 3
+        waitDuration: 200ms
+  circuitbreaker:
+    instances:
+      always:
+        minimumNumberOfCalls: 3
+
 management:
   endpoint:
     health:
