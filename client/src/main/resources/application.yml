@@ -22,6 +22,10 @@ resilience4j:
       always:
         minimumNumberOfCalls: 3
 
+spring:
+  application:
+    name: hello-resilience-client
+
 management:
   endpoint:
     health:
@@ -30,3 +34,9 @@ management:
     web:
       exposure:
         include: "*"
+  metrics:
+    distribution:
+      percentiles-histogram.resilience4j.circuitbreaker.calls: true
+    tags:
+      application: ${spring.application.name}
+

@@ -12,7 +12,7 @@ public interface FailureClient {
     @GetMapping("/always")
     String always();
 
-    @Retry(name = "twiice", fallbackMethod = "fallback")
+    @Retry(name = "twice", fallbackMethod = "fallback")
     @GetMapping("/twice")
     String twice();
 

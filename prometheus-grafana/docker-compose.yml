@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+            - ~/workspace/hello-resilience/prometheus-grafana/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+            - hello-resilience-prometheus-data:/prometheus
+    ports:
+      - 9090:9090
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+      
+  grafana:
+    image: grafana/grafana:latest
+    volumes:
+            - ~/workspace/hello-resilience/prometheus-grafana/grafana/provisioning:/etc/grafana/provisioning/
+            - hello-resilience-grafana-data:/var/lib/grafana
+    ports:
+      - 3000:3000
+    links:
+      - prometheus
+
+volumes:
+  hello-resilience-prometheus-data:
+  hello-resilience-grafana-data:
